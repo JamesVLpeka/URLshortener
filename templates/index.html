@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}URL Short{% endblock %}
+
+{% block content %}
+
+<form action="#" method="POST">
+    <!-- <div class="row"> -->
+        <div class="col-25">
+            <label for="url">Enter URL </label>
+        </div>
+
+        <div class="col-75">
+            <input type="url" name="url_input" id="url" autocomplete="off" placeholder="https://example.com" pattern="https://.*" required class="css-input">
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Submit" class="btn">
+        </div>
+            
+    <!-- </div> -->
+
+
+    
+</form>
+    <br><br><br>
+    <!-- <div class="row"> -->
+        <div class="col-25">
+            <label for="shortUrl">Shorten URL </label>
+        </div>
+
+        <div class="col-75">
+            <input type="url" value="{{shortUrl}}" autocomplete="off" class="css-input" readonly id="myInput">
+        </div>
+
+        <div class="row">
+            <button onclick="myFunction()" class="btn">Copy</button>
+        </div>
+        
+        
+    <!-- </div> -->
+
+
+
+    <h2>{{url_not_exist}}</h2>
+{% endblock %}

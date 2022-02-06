@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <!-- Importing font awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>{% block title %}{% endblock %}</title>
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="../static/favicon_io/fav_icon.png">
+
+</head>
+<style>
+    /* header */
+    .header{
+        min-height: 20vh;
+	      width: 100%;
+        background-image: url('../static/header.png');
+        background-position:center;
+        background-size:cover;
+        position: relative;
+        padding: 10px;
+        color: #FF4545;
+
+    }
+    /* body */
+    body{
+        background-color: #212121;
+        color: rgb(0, 0, 0);
+    }
+
+    /* button */
+    .btn {
+        -webkit-border-radius: 15;
+        -moz-border-radius: 15;
+        border-radius: 15px;
+        font-family: Arial;
+        color: #000000;
+        font-size: 20px;
+        background: #FD7014;
+        padding: 6px 20px 6px 20px;
+        border: solid #393E46 1px;
+        text-decoration: none;
+        margin: 10px;
+    }
+    /* button hover */
+    .btn:hover {
+        background: #fd7114ce;
+        color: #000000;
+    }
+
+    .container{
+        padding: 20px;
+        background-color: #eeeeee;
+        margin-top: 30px;
+    }
+
+    /* input */
+    .css-input {
+        padding: 8px;
+        font-size: 16px;
+        border-width: 0px;
+        border-color: #CCCCCC;
+        background-color: #FFFFFF;
+        color: #000000;
+        border-style: solid;
+        border-radius: 5px;
+        box-shadow: 0px 0px 4px rgba(66,66,66,.50);
+    }
+
+    /* Style inputs, select elements and textareas */
+    input[type=url]{
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    
+    /* Style the label to display next to the inputs */
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+
+    /* Floating column for labels: 25% width */
+    .col-25 {
+      float: left;
+      width: 15%;
+      margin-top: 6px;
+    }
+
+    /* Floating column for inputs: 75% width */
+    .col-75 {
+      float: left;
+      width: 60%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    /* styling hr tag */
+    .line{
+      padding: 5px;
+      background-color: #F56F27;
+
+    }
+  /* ICON  */
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .footer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    a{
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background: #FFFFFF;
+      color: #242424;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      margin: 1em;
+      border-radius: 15%;
+      transition: all .4s;
+    }
+
+    a::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #F0F6FC;
+      border-radius: 15%;
+      transform: scale(1.1);
+      z-index: -1;
+      transition: all .4s;
+    }
+
+    a:nth-child(2)::before{
+      background: #0B66C2;
+    }
+
+
+    a:nth-child(3)::before{
+      background: #c32aa3;
+    }
+
+    a:nth-child(4)::before{
+      background: #1da1f2;
+    }
+
+    a:hover::before{
+      transform: translateY(10px) scaleX(0.6) scaleY(0.8);
+      filter:blur(10px);
+    }
+
+    a:hover:nth-child(1){
+      color: #F0F6FC;
+      text-shadow: 0 0 30px #F0F6FC;
+    }
+
+    a:hover:nth-child(2){
+      color: #0B66C2;
+      text-shadow: 0 0 30px #0B66C2;
+    }
+
+    a:hover:nth-child(3){
+      color: #c32aa3;
+      text-shadow: 0 0 30px #c32aa3;
+    }
+
+    a:hover:nth-child(4){
+      color: #1da1f2;
+      text-shadow: 0 0 30px #1da1f2;
+    }
+
+
+
+  
+</style>
+
+<script>
+    function myFunction() {
+        /* Get the text field */
+        var copyText = document.getElementById("myInput");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+
+
+    }
+</script>
+
+<body>
+
+    <div class="line"></div>
+    <div class="container-fluid">
+        <div class="header">
+            <h1>Mizo URL Shortener</h1>
+            <p>Short your URL</p>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+
+    <div class="container">
+        
+        
+        {% block content %}
+        {% endblock %}
+
+
+    </div>
+
+      <div class="footer">
+          <a href="https://github.com/JamesVLpeka" target="_blank"><img src="../static/icon/github.png" width="50" alt="github icon"></a>
+          <a href="https://www.linkedin.com/in/james-vanlalpeka-4074b91aa/" target="_blank"><img src="../static/icon/linkedin.png" width="50" alt="linkedin icon"></a>
+          <a href="https://www.instagram.com/nigapeka/" target="_blank"><img src="../static/icon/instagram.png" width="50" alt="instagram icon"></a>
+          <a href="https://twitter.com/JamesVLpeka" target="_blank"><img src="../static/icon/twitter.png" width="50" alt="twitter icon"></a>
+
+          
+      </div>
+
+
+</body>
+
+
+</html>
+
+
