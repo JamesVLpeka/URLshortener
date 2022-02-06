@@ -46,7 +46,7 @@ def home():
         if found_url:
             #return short url if found
             #return redirect(url_for("display_short_url", url=found_url.short))
-            finalUrl = "127.0.0.1:5000/"+found_url.short #here
+            finalUrl = "https://mizo-url-shortener.herokuapp.com/"+found_url.short #here
             return render_template('index.html', shortUrl = finalUrl)
         else:
             #create short url if not found
@@ -55,7 +55,7 @@ def home():
             db.session.add(new_url)
             db.session.commit()
             # return redirect(url_for("display_short_url", url=short_url))
-            finalUrl = "127.0.0.1:5000/"+short_url #here
+            finalUrl = "https://mizo-url-shortener.herokuapp.com/"+short_url #here
             return render_template('index.html', shortUrl = finalUrl)
 
     else:
